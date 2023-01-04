@@ -18,6 +18,9 @@ import AddStudent from "./AddStudent";
 import { Backdrop, Paper } from "@mui/material";
 import Mentors from "./Mentors";
 import { EditStudent } from "./EditStudent";
+import StudentMentor from "./StudentMentor";
+import AddMentor from "./AddMentor";
+import { EditMentor } from "./EditMentor";
 
 // import EditStudent from "./EditStudent";
 export const crtContext = createContext();
@@ -65,7 +68,7 @@ function App() {
       age: 21,
       address: "A-112,Krishvi Gavakshi, Bangalore-500411",
       profession: "Cloud Engineer",
-      Course: "Full Stack Development",
+      Course: "Web Development",
       ECTC: "50 LPA",
       CTC: "31 LPA",
       Mentors: [],
@@ -113,7 +116,7 @@ function App() {
       age: 44,
       address: "2/D Swamy Vivekananda colony, Hyderabad",
       profession: "House Wife",
-      Course: "FullStack Development",
+      Course: "Full Stack Development",
       ECTC: "24 LPA",
       CTC: "12 LPA",
       Mentors: [],
@@ -124,18 +127,39 @@ function App() {
   let [mentors, setMentor] = useState([
     {
       mentorName: "Sanjay",
-      Course: "FullStack Development",
+      Course: "Full Stack Development",
       Students: [],
+      age: 25,
+      address: "G-4,Daredia Sky Garden,Kompally Hyderabad-500014",
+      profession: "Software Engineer",
+      id: 0,
     },
     {
       mentorName: "Ragav Kumar",
       Course: "Web Development",
       Students: [],
+      age: 25,
+      address: "G-4,Daredia Sky Garden,Kompally Hyderabad-500014",
+      profession: "Software Engineer",
+      id: 1,
     },
     {
       mentorName: "Neelima",
       Course: "Full Stack Development",
       Students: [],
+      age: 25,
+      address: "G-4,Daredia Sky Garden,Kompally Hyderabad-500014",
+      profession: "Software Engineer",
+      id: 2,
+    },
+    {
+      mentorName: "Ragav Juwal",
+      Course: "Web Development",
+      Students: [],
+      age: 25,
+      address: "G-4,Daredia Sky Garden,Kompally Hyderabad-500014",
+      profession: "Software Engineer",
+      id: 3,
     },
   ]);
   var navigate = useNavigate();
@@ -151,6 +175,12 @@ function App() {
             <Button color="inherit" onClick={() => navigate("/AddStudent")}>
               Add Student
             </Button>
+            <Button color="inherit" onClick={() => navigate("/Addmentor")}>
+              Add Mentor
+            </Button>
+            <Button color="inherit" onClick={() => navigate("/studentmentor")}>
+              Student Mentor
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>
@@ -160,9 +190,13 @@ function App() {
           <Route path="/students" element={<Students />} />
           <Route path="/mentors" element={<Mentors />} />
           <Route path="/Addstudent" element={<AddStudent />} />
+          <Route path="/Addmentor" element={<AddMentor />} />
           {/* <Route path="/viewstudent" element={<ViewStudent />} /> */}
           <Route path="/viewstudent/:id" element={<StudentDetails />} />
           <Route path="/editstudent/:id" element={<EditStudent />} />
+          <Route path="/editmentor/:id" element={<EditMentor />} />
+          <Route path="/studentmentor" element={<StudentMentor />} />
+          <Route path="/viewmentor/:id" element={<MentorDetails />} />
         </Routes>
       </crtContext.Provider>
     </div>
@@ -184,7 +218,13 @@ function Home() {
         </Button>
       </div>
       <div className="StudentHome">
-        <Button onClick={() => navigate("/mentors")} variant="outlined">
+        <img
+          src="https://www.roberthalf.com/sites/default/files/2019-04/How-to-Be-a-Mentor-RH-05-02-2019.jpg"
+          height={"300px"}
+          width={"300px"}
+        ></img>
+        <br></br>
+        <Button onClick={() => navigate("/Mentors")} variant="outlined">
           Mentors
         </Button>
       </div>
@@ -205,6 +245,29 @@ function StudentDetails() {
       <h3>Profession: {data.profession}</h3>
       <h3>Course: {data.Course}</h3>
       <h3>Expected CTC: {data.ECTC}</h3>
+      <Button
+        startIcon={<ArrowBackIcon />}
+        onClick={() => navigate(-1)}
+        variant="outlined"
+      >
+        BACK
+      </Button>
+    </Paper>
+  );
+}
+function MentorDetails() {
+  const [students, setStudents, mentors, setMentor] = useContext(crtContext);
+  const { id } = useParams();
+  var navigate = useNavigate();
+  console.log(id);
+  var data = mentors[id];
+  console.log(data);
+  return (
+    <Paper elevation={20} className="Details">
+      <h3>Name: {data.mentorName}</h3>
+      <h3>Address: {data.address}</h3>
+      <h3>Profession: {data.profession}</h3>
+      <h3>Course: {data.Course}</h3>
       <Button
         startIcon={<ArrowBackIcon />}
         onClick={() => navigate(-1)}

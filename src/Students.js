@@ -46,7 +46,6 @@ export function Students() {
   let [Class, setClass] = useState(unique);
   return (
     <div className="Students">
-      {/* <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}> */}
       <div className="withClasses">
         {Class.map((classdata) => {
           return (
@@ -82,9 +81,6 @@ export function Students() {
 }
 function ClassDetails({ class1, studentClassObj }) {
   let [show, setShow] = useState(false);
-  const stylesheet = {
-    display: show ? "block" : "none",
-  };
   // console.log("studentClassObj", studentClassObj, class1);
   return (
     <div>

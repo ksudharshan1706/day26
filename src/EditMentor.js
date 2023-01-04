@@ -9,31 +9,24 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { crtContext } from "./App";
 
-export function EditStudent() {
-  const [students, setStudents] = useContext(crtContext);
+export function EditMentor() {
+  const [students, setStudents, mentors, setMentor] = useContext(crtContext);
   const { id } = useParams();
   var navigate = useNavigate();
-  var data = students[id];
-  let [name, setname] = useState(data.name);
+  var data = mentors[id];
+  console.log(data);
+  let [mentorName, setname] = useState(data.mentorName);
   let [age, setage] = useState(data.age);
   let [address, setAddress] = useState(data.address);
   let [profession, setProfession] = useState(data.profession);
   let [Course, setCourse] = useState(data.Course);
-  let [ECTC, SetECTC] = useState(data.ECTC);
-  let [CTC, SetCTC] = useState(data.CTC);
-  let [Mentors, setMentor] = useState(data.Mentors);
-  let [classtaking, setClasstaking] = useState(data.classtaking);
   let [Id, Setid] = useState(data.id);
   const EditData = {
-    name,
+    mentorName,
     age,
     address,
     profession,
     Course,
-    ECTC,
-    CTC,
-    Mentors,
-    classtaking,
     id: Id,
   };
   const onChangeValue = (e) => {
@@ -41,19 +34,19 @@ export function EditStudent() {
   };
   const editdetails = () => {
     var index = parseInt(id);
-    // console.log(students.slice(0, index));
-    // console.log(students.slice(index + 1));
-    setStudents([
-      ...students.slice(0, index),
+    console.log(mentors.slice(0, index));
+    console.log(mentors.slice(index + 1));
+    setMentor([
+      ...mentors.slice(0, index),
       EditData,
-      ...students.slice(index + 1),
+      ...mentors.slice(index + 1),
     ]);
-    // console.log(EditData, students);
-    navigate(`/students`);
+    console.log(EditData, mentors);
+    navigate(`/mentors`);
   };
   return (
     <form className="formdata">
-      <b>{`EDIT DETAILS OF ${data.name}`}</b>
+      <b>{`EDIT DETAILS OF ${data.mentorName}`}</b>
       <br></br>
       <TextField
         onKeyUp={(e) => setProfession(e.target.value)}
@@ -82,13 +75,7 @@ export function EditStudent() {
           />
         </RadioGroup>
       </FormControl>
-      <br></br>
-      <TextField
-        onKeyUp={(e) => SetECTC(e.target.value)}
-        id="outlined-basic"
-        label="ECTC"
-        variant="outlined"
-      />
+
       <br></br>
       <Button
         onClick={editdetails}
@@ -98,7 +85,7 @@ export function EditStudent() {
         Submit
       </Button>
       <br></br>
-      <label>NAME: {data.name} </label>
+      <label>NAME: {data.mentorName} </label>
       <br></br>
       <label>Profesion:{data.profession} </label>
       <br></br>

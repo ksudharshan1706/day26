@@ -5,6 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
+
 export function Student({ student, index, classassigned }) {
   let [show, setShow] = useState(false);
   let [classtaking, setClasstaking] = useState(student.classtaking);
