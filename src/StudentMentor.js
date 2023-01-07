@@ -91,7 +91,10 @@ function MentorStudent({ mentor, studentrange }) {
           </div>
 
           <EditIcon onClick={() => navigate(`/editmentor/${mentor.id}`)} />
-          <InfoIcon onClick={() => navigate(`/viewmentor/${mentor.id}`)} />
+          <InfoIcon
+            color="primary"
+            onClick={() => navigate(`/viewmentor/${mentor.id}`)}
+          />
           <button onClick={() => setShow(!show)}>Toggle</button>
         </div>
       </Paper>
@@ -103,6 +106,7 @@ function MentorStudent({ mentor, studentrange }) {
               <div className="Students">
                 <h1>{student.name}</h1>
                 <InfoIcon
+                  color="primary"
                   onClick={() => navigate(`/viewstudent/${student.id}`)}
                 />
               </div>

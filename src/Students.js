@@ -84,7 +84,7 @@ function ClassDetails({ class1, studentClassObj }) {
   // console.log("studentClassObj", studentClassObj, class1);
   return (
     <div>
-      <Paper style={{ backgroundColor: "rgb(245, 126, 126)" }} elevation={10}>
+      <Paper style={{ backgroundColor: "rgb(126 210 245)" }} elevation={10}>
         <div className="classtoggle">
           <div>
             <h2>{class1}</h2>

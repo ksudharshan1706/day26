@@ -1,6 +1,7 @@
 import { Paper } from "@mui/material";
 import { useContext, useState } from "react";
 import { crtContext } from "./App";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function Mentors() {
   const [students, setstudents, mentors, setMentor] = useContext(crtContext);
@@ -22,7 +23,7 @@ function MentorDetails({ data }) {
     display: show ? "block" : "none",
   };
   const removeStudent = (id) => {
-    var index = parseInt(id.target.id);
+    var index = parseInt(id);
     for (let i = index + 1; i < mentors.length; i++) {
       var mentor = mentors[i];
       id = mentor.id;
@@ -31,13 +32,24 @@ function MentorDetails({ data }) {
     setMentor([...mentors.slice(0, index), ...mentors.slice(index + 1)]);
   };
   return (
-    <div className="">
-      <h2>{data.mentorName}</h2>
-      <button onClick={() => setShow(!show)}>Toggle</button>
-      <button id={data.id} onClick={removeStudent}>
-        Delete
-      </button>
+    <div className="mentorCard">
+      <Paper style={{ backgroundColor: "rgb(126 210 245)" }} elevation={10}>
+        <div className="Mentor">
+          <div>
+            <h2>{data.mentorName}</h2>
+          </div>
+          <DeleteIcon
+            color="error"
+            id={data.id}
+            onClick={() => removeStudent(data.id)}
+          >
+            Delete
+          </DeleteIcon>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+        </div>
+      </Paper>
       <div style={stylesheet}>
+        <br></br>
         <div>
           <b>Profesion:</b> {data.profession}
         </div>
@@ -48,6 +60,7 @@ function MentorDetails({ data }) {
           <b>Address:</b> {data.address}
         </div>
       </div>
+      <br></br>
     </div>
   );
 }

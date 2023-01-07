@@ -207,22 +207,14 @@ function Home() {
   return (
     <div className="Home">
       <div className="StudentHome">
-        <img
-          src="https://leadschool.in/wp-content/uploads/2022/02/Img_987-edited-e1643982754142.png"
-          height={"300px"}
-          width={"300px"}
-        ></img>
+        <img src="https://leadschool.in/wp-content/uploads/2022/02/Img_987-edited-e1643982754142.png"></img>
         <br></br>
         <Button onClick={() => navigate("/students")} variant="outlined">
           STUDENT
         </Button>
       </div>
       <div className="StudentHome">
-        <img
-          src="https://www.roberthalf.com/sites/default/files/2019-04/How-to-Be-a-Mentor-RH-05-02-2019.jpg"
-          height={"300px"}
-          width={"300px"}
-        ></img>
+        <img src="https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=878&q=80"></img>
         <br></br>
         <Button onClick={() => navigate("/Mentors")} variant="outlined">
           Mentors

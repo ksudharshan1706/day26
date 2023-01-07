@@ -5,6 +5,8 @@ import AddIcon from "@mui/icons-material/Add";
 import InfoIcon from "@mui/icons-material/Info";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
+import { IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export function Student({ student, index, classassigned }) {
   let [show, setShow] = useState(false);
@@ -13,9 +15,10 @@ export function Student({ student, index, classassigned }) {
     display: show ? "block" : "none",
   };
   let [students, setstudents] = useContext(crtContext);
-
+  const [togglestyle, setTogglestyle] = useState(true);
   const removeStudent = (id) => {
-    var index = parseInt(id.target.id);
+    console.log(id);
+    var index = parseInt(id);
     for (let i = index + 1; i < students.length; i++) {
       student = students[i];
       id = student.id;
@@ -31,10 +34,13 @@ export function Student({ student, index, classassigned }) {
           <h2>{student.name}</h2>
         </div>
         <EditIcon onClick={() => navigate(`/editstudent/${index}`)} />
-        <InfoIcon onClick={() => navigate(`/viewstudent/${index}`)} />
-        <button id={student.id} onClick={removeStudent}>
+        <InfoIcon
+          color="primary"
+          onClick={() => navigate(`/viewstudent/${index}`)}
+        />
+        <DeleteIcon color="error" onClick={() => removeStudent(student.id)}>
           Delete
-        </button>
+        </DeleteIcon>
         <button onClick={() => setShow(!show)}>Toggle</button>
       </div>
       <div style={stylesheet}>

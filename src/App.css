@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   height: 760px;
-  /* background-color: rgb(73, 72, 72); */
+  background-color: rgb(214, 214, 214);
 }
 
 .App-logo {
@@ -50,6 +50,8 @@
   height: 400px;
   width: 400px;
   border: 2px solid;
+  border-radius: 50%;
+  background-color: white;
 }
 .Students{
   display: flex;
@@ -59,14 +61,10 @@
   height: 600px;
   /* border: 2px solid red; */
 }
-  .StudentCard{
-    /* margin: 2%; */
-    /* border: 2px dotted red; */
-    /* display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;   */
-  }
+.mentorCard{
+  background-color: white;
+  border-radius: 10px;
+}
 .studentHeading{
   display: flex;
     justify-content: space-evenly;
@@ -81,9 +79,12 @@
   /* margin-top: 10%; */
 }
 .withoutClass{
+  margin-top: 2%;
   height: 100%;
   width:40%;
   flex-wrap: wrap;  
+  background-color: white;
+  border-radius: 10px;  
   /* border: 2px solid blue; */
   /* margin-top: 10%; */
 }
@@ -112,7 +113,8 @@
   flex-wrap: wrap;
   width: 500px;
   margin-top:2%;
-  margin-left:30%
+  margin-left:30%;
+  
   /* margin-top:10px; */
 }
 .ClassSelection{
@@ -127,7 +129,7 @@
   height: min-content;
   width: auto;
   border-radius: 10px;
-  background-color: rgb(132, 131, 131);
+  background-color: white;
 }
 
 .Details{
@@ -139,9 +141,10 @@
 }
 
 .Mentors{
+  margin-left: 15%;
   height: 1000px;
   width: 1000px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .mentorsStudents{
@@ -154,6 +157,7 @@
   margin: 5%;
 }
 .fullstackdevelopmet{
+  width: 600px;
   margin: 5%;
 }
 .MentorStudent{
@@ -189,8 +193,25 @@
   height: min-content;
 }
 .mentorsBack{
-background-color: rgb(132, 131, 131);
+background-color: white;
 height: min-content;
 width: auto;
 border-radius: 10px;
+}
+
+.Mentor{
+  height: 100%;
+  width:80%;
+  margin-left: 10%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;  
+}
+img{
+
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
 }
